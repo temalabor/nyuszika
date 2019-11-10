@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\farka\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\farka\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Nyuszika.-1761499000.00" t="ExcludeRecursive" />
+    <e p="D:\Asztal+\Nyuszika" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Blob.cs" t="Include" />
+          <e p="CameraFollow.cs" t="Include" />
+          <e p="Float.cs" t="Include" />
+          <e p="Level Generation" t="Include">
+            <e p="BorderScript.cs" t="Include" />
+            <e p="GeneratorScript.cs" t="Include" />
+            <e p="Tiles.cs" t="Include" />
+          </e>
+          <e p="Movement.cs" t="Include" />
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="Blob.shader" t="Include" />
+          <e p="SingleColor.shader" t="Include" />
+        </e>
+      </e>
+      <e p="Nyuszika.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
