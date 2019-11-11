@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class GeneratorScript : MonoBehaviour
 {
-    public Tiles tiles;
+    private Tiles tiles;
     private int random;
 
     public void Start()

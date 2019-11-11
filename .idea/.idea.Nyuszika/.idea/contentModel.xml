@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\farka\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -12,6 +12,7 @@
           <e p="Float.cs" t="Include" />
           <e p="Level Generation" t="Include">
             <e p="BorderScript.cs" t="Include" />
+            <e p="freemove.cs" t="Include" />
             <e p="GeneratorScript.cs" t="Include" />
             <e p="Tiles.cs" t="Include" />
           </e>
