@@ -14,8 +14,17 @@ public class BorderScript : MonoBehaviour
         {
             if (gen != null)
             {
-                gen.Generate(dir);
-                Destroy(gen);
+                if (dir % 2 ==0)
+                { 
+                    gen.Generate(dir);
+                    Destroy(gen);
+                }
+                else
+                {
+                    //wait
+                    gen.Generate(dir);
+                    Destroy(gen);
+                }
             }
 
             Destroy(super);
