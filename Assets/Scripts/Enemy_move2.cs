@@ -18,6 +18,7 @@ public class Enemy_move2 : MonoBehaviour
     private Vector2 current;
 
     private Vector2 nyusziCurrent;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Enemy_move2 : MonoBehaviour
         maxDistance = 12.0f;
         current = rb.transform.position;
         nyusziCurrent = nyuszi.transform.position;
+      
     }
 
     // Update is called once per frame
@@ -46,6 +48,8 @@ public class Enemy_move2 : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
+
+     
     }
 
     private void CheckNyusziClose()
@@ -61,5 +65,7 @@ public class Enemy_move2 : MonoBehaviour
             nyusziClose = false;
         }
     }
+
+    
     
 }

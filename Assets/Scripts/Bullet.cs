@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     public float speed;
     public Transform nyuszi;
     public Vector2 nyusziCoord;
+    public BoxCollider2D nyusziBC;
+    
 
 
     public Rigidbody2D rb;
@@ -19,6 +21,7 @@ public class Bullet : MonoBehaviour
     {
         nyuszi = GameObject.Find("blob").transform;
         nyusziCoord = nyuszi.transform.position;
+        nyusziBC = GameObject.Find("blob").GetComponent<BoxCollider2D>();
         tr = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         speed = 50000.0f;
@@ -32,8 +35,12 @@ public class Bullet : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 nyusziCurrent = nyuszi.position;
-        if (Vector2.Distance(tr.position, nyusziCurrent) < 0.5f)
-        {
+        //if (Vector2.Distance(tr.position, nyusziCurrent) < 0.5f)
+            
+            if (rb.IsTouching(nyusziBC))
+            {
+                Player_life lifescript = GameObject.Find("blob").GetComponent<Player_life>();
+                lifescript.DecreaseLife();
             Destroy(gameObject);
         }
 
