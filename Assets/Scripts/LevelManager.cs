@@ -10,25 +10,46 @@ public class LevelManager : MonoBehaviour
     private MapProperties _properties;
     
     private List<GameObject> _prefabs = new List<GameObject>();
-    private Dictionary<Vector2, GameObject> _levels = new Dictionary<Vector2, GameObject>();
+    private Dictionary<Vector2Int, GameObject> _levels = new Dictionary<Vector2Int, GameObject>();
     
     private void Start()
     {
         _properties = GetComponent<MapProperties>();
         
-        LoadLevels();
+        CreateMap();
     }
 
-    private void LoadLevels()
+    private void LoadPrefabs()
     {
         _prefabs.Add(Resources.Load<GameObject>("levels/level_00"));
         _prefabs.Add(Resources.Load<GameObject>("levels/level_01"));
+        _prefabs.Add(Resources.Load<GameObject>("levels/level_02"));
         _prefabs.Add(Resources.Load<GameObject>("levels/level_10"));
+        _prefabs.Add(Resources.Load<GameObject>("levels/level_11"));
+        _prefabs.Add(Resources.Load<GameObject>("levels/level_12"));
+        _prefabs.Add(Resources.Load<GameObject>("levels/level_20"));
+        _prefabs.Add(Resources.Load<GameObject>("levels/level_21"));
+        _prefabs.Add(Resources.Load<GameObject>("levels/level_22"));
+    }
 
-        _levels.Add(new Vector2(0, 0), Instantiate(_prefabs[0], transform, true));
-        _levels.Add(new Vector2(0, 1), Instantiate(_prefabs[1], transform, true));
-        _levels.Add(new Vector2(1, 0), Instantiate(_prefabs[2], transform, true));
-        
+    private void GenerateMap()
+    {
+        _levels.Add(new Vector2Int(-1, 1), Instantiate(_prefabs[0], transform, true));
+        _levels.Add(new Vector2Int(0, 1), Instantiate(_prefabs[1], transform, true));
+        _levels.Add(new Vector2Int(1, 1), Instantiate(_prefabs[2], transform, true));
+        _levels.Add(new Vector2Int(-1, 0), Instantiate(_prefabs[3], transform, true));
+        _levels.Add(new Vector2Int(0, 0), Instantiate(_prefabs[4], transform, true));
+        _levels.Add(new Vector2Int(1, 0), Instantiate(_prefabs[5], transform, true));
+        _levels.Add(new Vector2Int(-1, -1), Instantiate(_prefabs[6], transform, true));
+        _levels.Add(new Vector2Int(0, -1), Instantiate(_prefabs[7], transform, true));
+        _levels.Add(new Vector2Int(1, -1), Instantiate(_prefabs[8], transform, true));
+    }
+    
+    private void CreateMap()
+    {
+        LoadPrefabs();
+        GenerateMap();
+
         foreach (var level in _levels)
         {
             level.Value.transform.localScale = new Vector3(_properties.levelWidth, _properties.levelHeight, 1);
@@ -36,48 +57,71 @@ public class LevelManager : MonoBehaviour
             level.Value.SetActive(false);
         }
 
-        _levels[new Vector2(0, 0)].SetActive(true);
+        _levels[new Vector2Int(0, 0)].SetActive(true);
     }
 
-    private bool checkForCharacter = false;
+    private void ActivateLevels(Vector2Int from, Vector2Int to)
+    {
+        for (var y = -1; y <= 1; y++)
+        {
+            for (var x = -1; x <= 1; x++)
+            {
+                var current = new Vector2Int(x, y);
+                
+                if(_levels.ContainsKey(from + current)) _levels[from + current].SetActive(false);
+            }
+        }
+        
+        for (var y = -1; y <= 1; y++)
+        {
+            for (var x = -1; x <= 1; x++)
+            {
+                var current = new Vector2Int(x, y);
+                
+                if(_levels.ContainsKey(to + current)) _levels[to + current].SetActive(true);
+            }
+        }
+    }
+
+    private bool _checkForCharacter = false;
+    private Vector2Int _prevLevelIndex;
     public void notify(GameObject from)
     {
         PlayerLeft?.Invoke(from);
-        from.SetActive(false);
+        _prevLevelIndex = GetIndexFromPosition(from.transform.position);
 
-        var position = GetCharacterPosition();
+        var positionIndex = GetIndexFromPosition(_properties.character.transform.position);
 
-        if (_levels.ContainsKey(position))
+        if (_levels.ContainsKey(positionIndex))
         {
-            var level = _levels[position];
-            level.SetActive(true);
+            var level = _levels[positionIndex];
+            ActivateLevels(_prevLevelIndex, positionIndex);
             PlayerEntered?.Invoke(level);
         }
         else
         {
-            checkForCharacter = true;
+            _checkForCharacter = true;
         }
     }
 
-    private Vector2 GetCharacterPosition()
+    private Vector2Int GetIndexFromPosition(Vector2 position)
     {
-        var charPos = _properties.character.transform.position;
-        var pos = new Vector2(Mathf.Round(charPos.x / _properties.levelWidth), Mathf.Round(charPos.y / _properties.levelHeight));
+        var pos = Vector2Int.RoundToInt(new Vector2(position.x / _properties.levelWidth, position.y / _properties.levelHeight));
 
         return pos;
     } 
 
     private void Update()
     {
-        if (!checkForCharacter) return;
+        if (!_checkForCharacter) return;
         
-        var position = GetCharacterPosition();
+        var position = GetIndexFromPosition(_properties.character.transform.position);
         if (!_levels.ContainsKey(position)) return;
 
         var level = _levels[position];
-        level.SetActive(true);
+        ActivateLevels(_prevLevelIndex, position);
         PlayerEntered?.Invoke(level);
 
-        checkForCharacter = false;
+        _checkForCharacter = false;
     }
 }

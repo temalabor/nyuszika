@@ -2,6 +2,12 @@
 
 public class Movement : MonoBehaviour
 {
+    public delegate void MovementDelegate();
+    public event MovementDelegate JumpEvent;
+    public event MovementDelegate WalkEvent;
+    public event MovementDelegate SlideEvent;
+    public event MovementDelegate NoneEvent;
+    
     public float jumpVelocity;
     public float jumpDamping;
     public float downForce;
@@ -42,7 +48,11 @@ public class Movement : MonoBehaviour
         if (_down) Down();
         if (_left) Left();
         if (_right) Right();
-        if (_none) DampMovement(_floatScript.onGround ? moveDamping : jumpDamping);
+        if (_none)
+        {
+            DampMovement(_floatScript.onGround ? moveDamping : jumpDamping);
+            NoneEvent?.Invoke();
+        }
     }
 
     private void HandleKeys()
@@ -65,6 +75,8 @@ public class Movement : MonoBehaviour
 
         _rb.velocity += Vector2.up * jumpVelocity;
         _jumpTimer = 0f;
+        
+        JumpEvent?.Invoke();
     }
 
     private void Down()
@@ -76,17 +88,33 @@ public class Movement : MonoBehaviour
     private void Left()
     {
         if (!sliding && _rb.velocity.x > -sideVelocity)
+        {
             _rb.AddForce(Vector2.left * (sideForce * _rb.mass * Time.deltaTime));
+        }
+
         if (sliding && _rb.velocity.x > -slideVelocity)
+        {
             _rb.AddForce(Vector2.left * (sideForce * _rb.mass * Time.deltaTime));
+        }
+        
+        if(_floatScript.onGround && !sliding) WalkEvent?.Invoke();
+        if(_floatScript.onGround && sliding) SlideEvent?.Invoke();
     }
 
     private void Right()
     {
         if (!sliding && _rb.velocity.x < sideVelocity)
+        {
             _rb.AddForce(Vector2.right * (sideForce * _rb.mass * Time.deltaTime));
+        }
+
         if (sliding && _rb.velocity.x < slideVelocity)
+        {
             _rb.AddForce(Vector2.right * (sideForce * _rb.mass * Time.deltaTime));
+        }
+        
+        if(_floatScript.onGround && !sliding) WalkEvent?.Invoke();
+        if(_floatScript.onGround && sliding) SlideEvent?.Invoke();
     }
 
     private void DampMovement(float damping)
