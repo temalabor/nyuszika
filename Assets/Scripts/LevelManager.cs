@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
             level.Value.SetActive(false);
         }
 
-        _levels[new Vector2Int(0, 0)].SetActive(true);
+        ActivateLevels(new Vector2Int(0, 0), new Vector2Int(0, 0));
     }
 
     private void ActivateLevels(Vector2Int from, Vector2Int to)
