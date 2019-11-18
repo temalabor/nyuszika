@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Enemy_shoot : MonoBehaviour
 {
-    public Transform nyuszi;
-    public Rigidbody2D rb;
+    public GameObject nyuszi;
+    private Rigidbody2D rb;
     public GameObject bullet;
 
     public bool shooting;
@@ -18,6 +18,7 @@ public class Enemy_shoot : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        nyuszi = GameObject.Find("blob");
         shootTime = 2.0f;
         shooting = false;
         _shootingDistance = 10.0f;

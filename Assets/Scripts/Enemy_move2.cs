@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy_move2 : MonoBehaviour
 {
-    public Transform nyuszi;
+    public GameObject nyuszi;
 
     public bool nyusziClose = false;
 
@@ -22,6 +22,7 @@ public class Enemy_move2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nyuszi = GameObject.Find("blob");
         rb = GetComponent<Rigidbody2D>();
         speed = 500.0f;
         maxDistance = 12.0f;

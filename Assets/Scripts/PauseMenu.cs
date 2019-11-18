@@ -12,9 +12,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public Button paused;
 
+    private Player_life lifescript;
+
     private void Start()
     {
         pauseMenuUI.SetActive(false);
+        lifescript = GameObject.Find("blob").GetComponent<Player_life>();
+        lifescript.LifeEvent += onLifeEvent;
     }
 
     // Update is called once per frame
@@ -31,8 +35,13 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-    } 
+    }
 
+    public void onLifeEvent(int remaining)
+    {
+        if (remaining == 0) Menu();
+    }
+    
    public void Resume()
     {
         pauseMenuUI.SetActive((false));
