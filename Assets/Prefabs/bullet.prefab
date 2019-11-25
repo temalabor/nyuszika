@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3804181539285361346}
   - component: {fileID: 7976908077211860862}
   - component: {fileID: 8795112359479097099}
+  - component: {fileID: 1686852625984730677}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -133,3 +134,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1686852625984730677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931995175093170018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4b0524ede3638429f5db65c93ecd23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiateAudio:
+    name: pew
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 95eef1e160a034a40bd56fd2369404af, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+  destroyAudio:
+    name: pop
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1d5e8329c92897d4fa9a56a5f4a31eed, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
