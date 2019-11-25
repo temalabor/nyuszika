@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     private Vector2 nyusziCoord;
     private BoxCollider2D nyusziBC;
     private Player_life lifescript;
+    private Vector2 startPos;
     
 
 
@@ -25,6 +26,7 @@ public class Bullet : MonoBehaviour
         Vector2 dir = nyuszi.transform.position - transform.position;
         dir.Normalize();
         rb.velocity += dir * speed;
+        startPos = rb.transform.position;
     }
 
     // Update is called once per frame
@@ -38,5 +40,10 @@ public class Bullet : MonoBehaviour
                 lifescript.DecreaseLife();
             Destroy(gameObject);
         }
+
+            if (rb.transform.position.y<startPos.y-10)
+            {
+                Destroy(gameObject);
+            }
     }
 }
