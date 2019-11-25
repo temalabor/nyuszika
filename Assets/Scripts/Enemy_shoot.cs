@@ -6,22 +6,18 @@ using UnityEngine;
 public class Enemy_shoot : MonoBehaviour
 {
     public GameObject nyuszi;
-    private Rigidbody2D rb;
     public GameObject bullet;
 
-    public bool shooting;
+    private bool shooting;
     private float _shootTimer;
-    public float shootTime ;
-
-    private float _shootingDistance;
+    public float shootTime = 2.0f;
+    public float _shootingDistance = 10.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         nyuszi = GameObject.Find("blob");
-        shootTime = 2.0f;
         shooting = false;
-        _shootingDistance = 10.0f;
     }
 
     // Update is called once per frame
@@ -33,29 +29,20 @@ public class Enemy_shoot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (shooting)
-        {
-            Shoot();
-        }
+        if (shooting) Shoot();
     }
 
 
     private void CheckShooting()
     {
-        if (Vector3.Distance(rb.transform.position, nyuszi.transform.position) < _shootingDistance)
-        {
-            shooting = true;
-        }
-        else
-        {
-            shooting = false;
-        }
+        shooting = Vector3.Distance(transform.position, nyuszi.transform.position) < _shootingDistance;
     }
 
     private void Shoot()
     {
         if (_shootTimer < shootTime) return;
+        
+        Instantiate(bullet, transform.position, Quaternion.identity);
         _shootTimer = 0f;
-        Instantiate(bullet, rb.transform.position, Quaternion.identity);
     }
 }

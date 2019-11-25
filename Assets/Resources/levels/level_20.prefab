@@ -481,8 +481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nyuszi: {fileID: 0}
   bullet: {fileID: 7931995175093170018, guid: 9112724629183194fade5c410845128d, type: 3}
-  shooting: 0
-  shootTime: 0
+  shootTime: 2
+  _shootingDistance: 10
 --- !u!114 &3730585405213821632
 MonoBehaviour:
   m_ObjectHideFlags: 0

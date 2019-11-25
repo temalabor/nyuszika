@@ -7,6 +7,9 @@ public class Movement : MonoBehaviour
     public event MovementDelegate WalkEvent;
     public event MovementDelegate SlideEvent;
     public event MovementDelegate NoneEvent;
+
+    public Animator animator;
+    private SpriteRenderer renderer;
     
     public float jumpVelocity;
     public float jumpDamping;
@@ -32,12 +35,17 @@ public class Movement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _floatScript = GetComponent<Float>();
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
         HandleKeys();
         if (_jumpTimer < jumpTime) _jumpTimer += Time.deltaTime;
+        
+        animator.SetFloat(Vspeed, Mathf.Abs(_rb.velocity.x));
+        if (_rb.velocity.x < 0) renderer.flipX = true;
+        if (_rb.velocity.x > 0) renderer.flipX = false;
     }
 
     private void FixedUpdate()
@@ -67,6 +75,7 @@ public class Movement : MonoBehaviour
 
     private float _jumpTimer;
     public float jumpTime = 0.5f;
+    private static readonly int Vspeed = Animator.StringToHash("vspeed");
 
     private void Jump()
     {

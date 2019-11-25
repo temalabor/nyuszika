@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed;
+    public float speed = 100;
     private GameObject nyuszi;
     private Vector2 nyusziCoord;
     private BoxCollider2D nyusziBC;
@@ -14,7 +14,6 @@ public class Bullet : MonoBehaviour
 
 
     private Rigidbody2D rb;
-    private Transform tr;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +21,10 @@ public class Bullet : MonoBehaviour
         lifescript = GameObject.Find("blob").GetComponent<Player_life>();
         nyuszi = GameObject.Find("blob");
         nyusziBC = GameObject.Find("blob").GetComponent<BoxCollider2D>();
-        tr = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
-        speed = 50000.0f;
-        Vector2 dir = nyusziCoord - new Vector2(tr.position.x, tr.position.y);
+        Vector2 dir = nyuszi.transform.position - transform.position;
         dir.Normalize();
-        rb.AddForce(dir * (speed * rb.mass * Time.deltaTime));
+        rb.velocity += dir * speed;
     }
 
     // Update is called once per frame
