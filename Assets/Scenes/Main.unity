@@ -1102,6 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 423787011}
+  life: {fileID: 423787013}
   sounds:
   - name: jump
     source: {fileID: 0}
@@ -1120,6 +1121,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 84e427d6b66ab4066b6a4dcd0ce819ee, type: 3}
     volume: 0.123
     pitch: 1
+    loop: 0
+  - name: ow
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 26b34db249bb76f42b4f4602d340727e, type: 3}
+    volume: 0.468
+    pitch: 1.75
     loop: 0
 --- !u!4 &1426324995
 Transform:

@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 	private static AudioManager _instance;
 
 	public Movement movement;
+	public Player_life life;
 	
 	public Sound[] sounds;
 
@@ -48,5 +49,8 @@ public class AudioManager : MonoBehaviour
 		
 		var slide = Array.Find(sounds, sound => sound.name == "slide");
 		if (jump != null) movement.SlideEvent += () => { if(!slide.source.isPlaying) slide.source.Play(); };
+		
+		var ow = Array.Find(sounds, sound => sound.name == "ow");
+		if (jump != null) life.LifeEvent += (int n) => { if(!ow.source.isPlaying) ow.source.Play(); };
 	}
 }

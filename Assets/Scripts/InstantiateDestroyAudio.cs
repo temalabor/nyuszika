@@ -27,6 +27,6 @@ public class InstantiateDestroyAudio : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(instantiateAudio.clip != null) destroyAudio.source.Play();
+        if(instantiateAudio.clip != null) AudioSource.PlayClipAtPoint(destroyAudio.clip, transform.position, destroyAudio.volume);
     }
 }
