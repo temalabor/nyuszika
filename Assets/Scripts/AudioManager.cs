@@ -1,8 +1,5 @@
-using UnityEngine.Audio;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
 
 public class AudioManager : MonoBehaviour
 {
