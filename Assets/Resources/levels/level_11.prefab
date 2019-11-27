@@ -152,16 +152,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1133307047365447212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2765f98a3ff9b944a799430f125c35f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f3bca4c9bc648f499d5cb39f39e97a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nyuszi: {fileID: 0}
   nyusziClose: 0
   rb: {fileID: 0}
-  speed: 500
-  maxDistance: 30
-  waitTime: 0
-  movingTime: 0
+  speed: 20
+  maxDistance: 500
+  waitTime: 10
+  movingTime: 30
   newTime: 1
 --- !u!1 &1346079715320491599
 GameObject:
