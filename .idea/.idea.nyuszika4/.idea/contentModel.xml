@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\laute\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\laute\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_nyuszika4.-1807248418.00" t="ExcludeRecursive" />
+    <e p="C:\Users\laute\RiderProjects\nyuszika4" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="fonts" t="Include">
+          <e p="Changa" t="Include">
+            <e p="OFL.txt" t="Include" />
+          </e>
+          <e p="Neucha" t="Include">
+            <e p="OFL.txt" t="Include" />
+          </e>
+          <e p="Permanent_Marker" t="Include">
+            <e p="LICENSE.txt" t="Include" />
+          </e>
+          <e p="Rye" t="Include">
+            <e p="OFL.txt" t="Include" />
+          </e>
+          <e p="Ultra" t="Include">
+            <e p="LICENSE.txt" t="Include" />
+          </e>
+        </e>
+        <e p="QS" t="Include">
+          <e p="QS-Textures-Grass-v1" t="Include">
+            <e p="Documentation" t="Include">
+              <e p="Readme.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Resources" t="Include">
+          <e p="scripts" t="Include">
+            <e p="TargetFollow.cs" t="Include" />
+          </e>
+        </e>
+        <e p="scripts" t="Include">
+          <e p="AboutPage.cs" t="Include" />
+          <e p="AudioManager.cs" t="Include" />
+          <e p="Blob.cs" t="Include" />
+          <e p="Bullet.cs" t="Include" />
+          <e p="CameraFollow.cs" t="Include" />
+          <e p="CameraTarget.cs" t="Include" />
+          <e p="Enemy_collision.cs" t="Include" />
+          <e p="Enemy_move1.cs" t="Include" />
+          <e p="Enemy_move2.cs" t="Include" />
+          <e p="Enemy_move3.cs" t="Include" />
+          <e p="Enemy_move4.cs" t="Include" />
+          <e p="Enemy_shoot.cs" t="Include" />
+          <e p="Family.cs" t="Include" />
+          <e p="Faster.cs" t="Include" />
+          <e p="Float.cs" t="Include" />
+          <e p="InstantiateDestroyAudio.cs" t="Include" />
+          <e p="LevelInit.cs" t="Include" />
+          <e p="LevelManager.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
+          <e p="MapProperties.cs" t="Include" />
+          <e p="Movement.cs" t="Include" />
+          <e p="PauseMenu.cs" t="Include" />
+          <e p="Player_life.cs" t="Include" />
+          <e p="PlusLife.cs" t="Include" />
+          <e p="Rotate.cs" t="Include" />
+          <e p="Slower.cs" t="Include" />
+          <e p="Sound.cs" t="Include" />
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="Blob.shader" t="Include" />
+          <e p="SingleColor.shader" t="Include" />
+        </e>
+      </e>
+      <e p="nyuszika4.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

@@ -8,10 +8,12 @@ public class Player_life : MonoBehaviour
 
     public event LifeDelegate LifeEvent;
     public int life;
-    
+
+    private int maxLife = 5;
     // Start is called before the first frame update
     void Start()
     {
+        life = maxLife;
     }
 
     // Update is called once per frame
@@ -24,5 +26,13 @@ public class Player_life : MonoBehaviour
     {
         life--;
         LifeEvent?.Invoke(life);
+    }
+
+    public void AddLife()
+    {
+        if (life != maxLife)
+        {
+            life++;
+        }
     }
 }

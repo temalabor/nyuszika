@@ -34,9 +34,17 @@ public class Enemy_move1 : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        if (right) Right();
-        else Left();
+
+        if (right)
+        {
+            Right();
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            Left();
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 
     private void LeftOrRight()

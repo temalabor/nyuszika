@@ -229,8 +229,10 @@ GameObject:
   - component: {fileID: 3112887786477223638}
   - component: {fileID: 3559831317428329511}
   - component: {fileID: 7397696654024875760}
+  - component: {fileID: 4937437584367725728}
+  - component: {fileID: 7284643906589367368}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 6579764693611391734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.03125, y: 0.05555556, z: 1}
+  m_LocalScale: {x: 0.08, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 7362689936959360377}
   m_RootOrder: 5
@@ -390,6 +392,39 @@ MonoBehaviour:
   jumpTime: 3
   jump: 0
   _speed: 100
+--- !u!95 &4937437584367725728
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579764693611391734}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 403ac18d773a09b4fbe0ff10bd91b378, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7284643906589367368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579764693611391734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14aabdd58c14be945aeebf95b6a24e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  nyuszi: {fileID: 0}
 --- !u!1 &7362689937282154404
 GameObject:
   m_ObjectHideFlags: 0
