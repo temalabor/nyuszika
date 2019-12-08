@@ -12,6 +12,8 @@ public class Faster : MonoBehaviour
     public BoxCollider2D nyusziBC;
 
     private bool faster;
+
+    private float max = 20000;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class Faster : MonoBehaviour
         nyusziBC=nyusziBC = GameObject.Find("blob").GetComponent<BoxCollider2D>();
         faster = false;
         movement=GameObject.Find("blob").GetComponent<Movement>();
-
+        max = 20000;
     }
 
     // Update is called once per frame
@@ -32,7 +34,15 @@ public class Faster : MonoBehaviour
     {
         if (faster)
         {
-            movement.sideForce *= 5;
+            if (movement.sideForce > max)
+            {
+                movement.sideForce = max;
+            }
+            else
+            {
+                movement.sideForce *= 5;
+            }
+            
             Destroy(gameObject);
         }
     }

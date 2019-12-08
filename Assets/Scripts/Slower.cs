@@ -11,6 +11,8 @@ public class Slower : MonoBehaviour
     public BoxCollider2D nyusziBC;
 
     private bool slower;
+
+    private float min = 200;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class Slower : MonoBehaviour
         nyusziBC=nyusziBC = GameObject.Find("blob").GetComponent<BoxCollider2D>();
         slower = false;
         movement=GameObject.Find("blob").GetComponent<Movement>();
+        min = 200;
 
     }
 
@@ -31,7 +34,14 @@ public class Slower : MonoBehaviour
     {
         if (slower)
         {
-            movement.sideForce /= 5;
+            if (movement.sideForce < min)
+            {
+                movement.sideForce = min;
+            }
+            else
+            {
+                movement.sideForce /= 5;
+            }
             Destroy(gameObject);
         }
     }
